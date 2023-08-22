@@ -1,5 +1,5 @@
 const {Schema, Types}=require('mongoose');
-
+//only the schema for creating a new reaction
 const reactionSchema = new Schema(
     {
         reactionId:{
@@ -21,7 +21,8 @@ const reactionSchema = new Schema(
             type: Date,
             default: Date.now(),
             get:function(createdAt){
-                return createdAt.toLocalString();
+                //grabs the current time and displays it formatted 
+                return createdAt.toLocaleString();
             }
         },
     },

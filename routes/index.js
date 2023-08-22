@@ -1,3 +1,4 @@
+//defines how the router is used and what prefix it needs
 const router = require('express').Router()
 const apiRoutes = require('./api')
 

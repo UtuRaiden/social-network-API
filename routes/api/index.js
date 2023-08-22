@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const userRoutes = require('./userRoutes')
-const thoughtRoutes = require('./thoughtRoutes')
+const userRoutes = require('./user')
+const thoughtRoutes = require('./thought')
 
-
-router.use('/users', userRoutes)
+//how the router is used and the prefexes required
+router.use('/user', userRoutes)
 router.use('/thoughts', thoughtRoutes)
 
 

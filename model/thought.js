@@ -1,6 +1,6 @@
 const {Schema, model } = require('mongoose');
 const reactionSchema = require('./reaction');
-
+//Thought Schema in creating a new thought
 const thoughtSchema = new Schema(
     {
         thoughtText:{
@@ -13,7 +13,8 @@ const thoughtSchema = new Schema(
             type: Date,
             default: Date.now(),
             get:function(createdAt){
-                return createdAt.toLocalString();
+                //adds the time it was created at and formats it
+                return createdAt.toLocaleString();
             }
         },
         username:{
@@ -21,6 +22,7 @@ const thoughtSchema = new Schema(
             require:true,
             minlength:4,
         },
+        //uses the reaction schema to display all the reactions
         reactions: [reactionSchema]
     },
     {
@@ -31,7 +33,7 @@ const thoughtSchema = new Schema(
         id:false,
     }
 );
-
+//grabs the amount of reactions 
 thoughtSchema.virtual('reactionAmount').get(function(){ return this.reactions.length});
 
 const Thought = model('thought', thoughtSchema);
